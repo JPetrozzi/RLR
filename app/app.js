@@ -4,9 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var homepage = require('./routes/HomePageRoute');
+var users = require('./routes/UsersRoute');
 
 var app = express();
 
@@ -22,8 +23,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+// DB Connection
+mongoose.connect('mongodb://localhost/rlrdb', function(err, res) {
+    if (err)
+        console.log('ERROR: connecting to Database. ' + err);
+}); 
+
+// API Middls
+app.use('/', homepage);
+app.use('/api/users', users);
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -55,6 +66,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;
