@@ -1,12 +1,13 @@
 doctype html
-html
+html(ng-app='RLRmodule')
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-    script(src='/javascripts/angular.js')
-    script(src='/javascripts/angular-resource.js')
-    script(src='/javascripts/angular-route.js')
-    script(src='/javascripts/videoclub.js')
+    script(src='/javascripts/angular.min.js')
+    script(src='/javascripts/angular-resource.min.js')
+    script(src='/javascripts/angular-route.min.js')
+    script(src='/javascripts/satellizer.min.js')
+    script(src='/javascripts/rlr-angular.js')
+    script(src='/javascripts/bootstrap.min.js')
   body
     block content
