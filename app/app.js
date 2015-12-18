@@ -1,13 +1,15 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
+var express         = require('express');
+var path            = require('path');
+var favicon         = require('serve-favicon');
+var logger          = require('morgan');
+var cookieParser    = require('cookie-parser');
+var bodyParser      = require('body-parser');
+var mongoose        = require('mongoose');
 
-var homepage = require('./routes/HomePageRoute');
-var users = require('./routes/UsersRoute');
+var config      = require('./config');
+var homepage    = require('./routes/HomePageRoute');
+var auth        = require('./routes/AuthRoute');
+var users       = require('./routes/UsersRoute');
 
 var app = express();
 
@@ -24,13 +26,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // DB Connection
-mongoose.connect('mongodb://localhost/rlrdb', function(err, res) {
+mongoose.connect(config.DATA_BASE, function(err, res) {
     if (err)
         console.log('ERROR: connecting to Database. ' + err);
 }); 
 
 // API Middls
 app.use('/', homepage);
+app.use('/auth', auth);
 app.use('/api/users', users);
 
 
