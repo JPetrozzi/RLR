@@ -2,12 +2,19 @@ doctype html
 html(ng-app='RLRmodule')
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-    script(src='/javascripts/angular.min.js')
-    script(src='/javascripts/angular-resource.min.js')
-    script(src='/javascripts/angular-route.min.js')
-    script(src='/javascripts/satellizer.min.js')
-    script(src='/javascripts/rlr-angular.js')
-    script(src='/javascripts/bootstrap.min.js')
+    link(rel='stylesheet', href='/stylesheets/materialdesignicons.css')
+    link(rel='stylesheet', href='/stylesheets/lumx.css')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700')
+    script(src='http://code.jquery.com/jquery-latest.min.js')
+    script(src='/javascripts/vendor/angular.min.js')
+    script(src='/javascripts/vendor/angular-resource.min.js')
+    script(src='/javascripts/vendor/angular-route.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js')
+    script(src='/javascripts/vendor/lumx.js')
+    script(src='/javascripts/vendor/satellizer.min.js')
+    script(src='/javascripts/rlr-module.js')
+    script(src='/javascripts/controlers.js')
+    script(src='/javascripts/services.js')
   body
     block content

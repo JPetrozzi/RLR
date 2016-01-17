@@ -1,7 +1,94 @@
 <h1>Home Page</h1>
 <p>
-    <a href="/#/register">Register</a>
+    <a href="#/register">Register</a>
 </p>
 <p>
-    <a href="/#/login">Login</a>
+    <a href="#/login">Login</a>
 </p>
+
+<button class="btn btn--m btn--black btn--flat" ng-click="opendDialog('loginDialog')" lx-ripple>Login</button>
+
+<lx-dialog class="dialog dialog--l" id="loginDialog" auto-close="true">
+    <div class="dialog__header">
+        <div class="toolbar bgc-light-blue-500 pl++">
+            <span class="toolbar__label tc-white fs-title">Welcome!</span>
+            
+            <div class="toolbar__right">
+                <button class="btn btn--l btn--white btn--icon" lx-ripple lx-dialog-close>X</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dialog__content">
+        <lx-tabs links-tc="light" links-bgc="light-blue-500" indicator="yellow-500" no-divider="true" layout="inline">
+            <lx-tab heading="Login">
+                <div class="p+">
+                    <div flex-container="row">
+                        <div flex-item>
+                            <lx-text-field label="Email">
+                                <input type="text" ng-model="user.email">
+                            </lx-text-field>
+                        </div>
+                    </div>
+                    <div flex-container="row">
+                        <div flex-item>
+                            <lx-text-field label="Password">
+                                <input type="password" ng-model="user.password">
+                            </lx-text-field>
+                        </div>
+                    </div>
+                    <div flex-container="row">
+                        <div flex-item>
+                            <button class="btn btn--m btn--blue btn--raised" flex-align="end" lx-ripple>Login</button>
+                        </div>
+                    </div>
+                </div>
+            </lx-tab>
+
+            <lx-tab heading="Register">
+                <div class="p+">
+                   <div flex-container="row">
+                        <div flex-item>
+                            <lx-text-field label="Name">
+                                <input type="text" ng-model="user.name">
+                            </lx-text-field>
+                        </div>
+                    </div>
+                    <div flex-container="row">
+                        <div flex-item>
+                            <lx-text-field label="Lastname">
+                                <input type="text" ng-model="user.lastname">
+                            </lx-text-field>
+                        </div>
+                    </div>
+                    <div flex-container="row">
+                        <div flex-item>
+                            <lx-text-field label="Email">
+                                <input type="email" ng-model="user.email">
+                            </lx-text-field>
+                        </div>
+                    </div>
+                    <div flex-container="row">
+                        <div flex-item>
+                            <lx-text-field label="Password">
+                                <input type="password" ng-model="user.password">
+                            </lx-text-field>
+                        </div>
+                    </div>
+                    <div flex-container="row">
+                        <div flex-item>
+                            <lx-text-field label="Confirm Password" error="user.password != user.confirmPassword">
+                                <input type="password" ng-model="user.confirmPassword">
+                            </lx-text-field>
+                        </div>
+                    </div>
+                    <div flex-container="row">
+                        <div flex-item>
+                            <button class="btn btn--m btn--blue btn--raised" lx-ripple>Register</button>
+                        </div>
+                    </div>
+                </div>
+            </lx-tab>
+        </lx-tabs>
+    </div>
+</lx-dialog>
