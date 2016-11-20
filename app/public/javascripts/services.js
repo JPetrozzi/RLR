@@ -4,6 +4,6 @@ angular
 
 AuthService.$inject = ['$resource'];
 function AuthService($resource) {
-    this.register = $resource("http://localhost:3000/auth/register");
-    this.login = $resource("http://localhost:3000/auth/login", {validLogin: {method: 'POST'}});
+    this.register = $resource("http://localhost:3000/auth/signup");
+    this.login = $resource("http://localhost:3000/auth/login", {'validLogin': {method: 'POST'}});
 };

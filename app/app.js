@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 mongoose.connect(config.DATA_BASE, function(err, res) {
     if (err)
         console.log('ERROR: connecting to Database. ' + err);
-}); 
+});
 
 // API Middls
 app.use('/', homepage);

@@ -2,7 +2,9 @@ var User = require('../models/User');
 var JwtManager = require('../jwtManager');
 
 exports.emailSignup = function(req, res) {
-    User.findOne({email: req.body.email.toLowerCase()}, function(err, user) {
+    console.log("request: " + req.body.email + ' - ' + req.body.password + ' - ' + req.body.name + ' - ' + req.body.lastname);
+
+    User.findOne({email: req.body.newUser.email.toLowerCase()}, function(err, user) {
         if (err) {
             res.json({
                 type: false,
@@ -16,12 +18,12 @@ exports.emailSignup = function(req, res) {
                 });
             } else {
                 var userModel = new User();
-                
-                userModel.apellido = req.body.apellido;
-                userModel.nombre = req.body.nombre;
+
+                userModel.apellido = req.body.lastname;
+                userModel.nombre = req.body.name;
                 userModel.email = req.body.email.toLowerCase();
                 userModel.password = req.body.password;
-                
+
                 userModel.save(function(err) {
                     if (err) {
                         res.json({
@@ -37,7 +39,7 @@ exports.emailSignup = function(req, res) {
                     }
                 });
             }
-        }        
+        }
     });
 };
 

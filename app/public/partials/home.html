@@ -1,18 +1,19 @@
 <h1>Home Page</h1>
 <p>
-    <a href="#/register">Register</a>
+    <a href="http://localhost:3000/api/users">Usuarios</a>
 </p>
 <p>
     <a href="#/login">Login</a>
 </p>
 
 <button class="btn btn--m btn--black btn--flat" ng-click="opendDialog('loginDialog')" lx-ripple>Login</button>
+<button class="btn btn--m btn--blue btn--flat" ng-click="showToken()" lx-ripple>Logear Token</button>
 
 <lx-dialog class="dialog dialog--l" id="loginDialog" auto-close="true">
     <div class="dialog__header">
         <div class="toolbar bgc-light-blue-500 pl++">
             <span class="toolbar__label tc-white fs-title">Welcome!</span>
-            
+
             <div class="toolbar__right">
                 <button class="btn btn--l btn--white btn--icon" lx-ripple lx-dialog-close>X</button>
             </div>
@@ -37,9 +38,9 @@
                             </lx-text-field>
                         </div>
                     </div>
-                    <div flex-container="row">
-                        <div flex-item>
-                            <button class="btn btn--m btn--blue btn--raised" flex-align="end" lx-ripple>Login</button>
+                    <div flex-container="column" flex-align="space-between end">
+                        <div class="p+">
+                            <button class="btn btn--m btn--blue btn--raised" ng-click="loginUser('loginDialog')" lx-ripple>Login</button>
                         </div>
                     </div>
                 </div>
@@ -50,41 +51,41 @@
                    <div flex-container="row">
                         <div flex-item>
                             <lx-text-field label="Name">
-                                <input type="text" ng-model="user.name">
+                                <input type="text" ng-model="newUser.name">
                             </lx-text-field>
                         </div>
                     </div>
                     <div flex-container="row">
                         <div flex-item>
                             <lx-text-field label="Lastname">
-                                <input type="text" ng-model="user.lastname">
+                                <input type="text" ng-model="newUser.lastname">
                             </lx-text-field>
                         </div>
                     </div>
                     <div flex-container="row">
                         <div flex-item>
                             <lx-text-field label="Email">
-                                <input type="email" ng-model="user.email">
+                                <input type="email" ng-model="newUser.email">
                             </lx-text-field>
                         </div>
                     </div>
                     <div flex-container="row">
                         <div flex-item>
                             <lx-text-field label="Password">
-                                <input type="password" ng-model="user.password">
+                                <input type="password" ng-model="newUser.password">
                             </lx-text-field>
                         </div>
                     </div>
                     <div flex-container="row">
                         <div flex-item>
-                            <lx-text-field label="Confirm Password" error="user.password != user.confirmPassword">
-                                <input type="password" ng-model="user.confirmPassword">
+                            <lx-text-field label="Confirm Password" error="newUser.password != newUser.confirmPassword">
+                                <input type="password" ng-model="newUser.confirmPassword">
                             </lx-text-field>
                         </div>
                     </div>
-                    <div flex-container="row">
-                        <div flex-item>
-                            <button class="btn btn--m btn--blue btn--raised" lx-ripple>Register</button>
+                    <div flex-container="column" flex-align="space-between end">
+                        <div class="p+">
+                            <button class="btn btn--m btn--blue btn--raised" ng-click="registerUser('loginDialog')" lx-ripple>Register</button>
                         </div>
                     </div>
                 </div>
